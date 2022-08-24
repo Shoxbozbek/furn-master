@@ -1,0 +1,62 @@
+{% load static %}
+
+<style>
+    .links {
+        display: inline-block!important;
+        border: 1px solid aqua!important;
+        padding: 10px 30px!important;
+        margin-top: 20px;
+        margin-right: 10px;
+        transition: 500ms all ease;
+    }
+    .links:hover {
+        border-radius: 10px;
+        background-color: aqua;
+        border: 2px solid aqua;
+        color: white;
+    }
+</style>
+
+
+
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="section-header">
+            <h2>new arrivals</h2>
+            {% for categories in categories %}
+            <a class="links" href="{% url 'furn:home' %}?category={{ categories.category_name }}">{{ categories.category_name }}</a>
+            {% endfor %}
+            <a class="links" href="{% url 'furn:home' %}">all</a>
+        </div>
+        <!--/.section-header-->
+        <div class="new-arrivals-content">
+            <div class="row">
+                {% for y in arrivals %}
+                <div class="col-md-3 col-sm-4">
+                    <div class="single-new-arrival">
+                        <div class="single-new-arrival-bg">
+                            <img src="{{ y.arrivals_img.url }}" alt="new-arrivals images" width="500px">
+                            <div class="single-new-arrival-bg-overlay"></div>
+                            <div class="new-arrival-cart">
+                                <p>
+                                    <span class="lnr lnr-cart"></span>
+                                    <a href="#">add <span>to </span> cart</a>
+                                </p>
+                                <p class="arrival-review pull-right">
+                                    <span class="lnr lnr-heart"></span>
+                                    <span class="lnr lnr-frame-expand"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <h4><a href="{% url 'furn:arrivals_detail' y.pk %}">{{ y.arrivals_title }}</a></h4>
+                        
+                        <p class="arrival-product-price">${{ y.arrivals_price }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+
+</section>
