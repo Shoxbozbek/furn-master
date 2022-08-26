@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-fa=ycow=)c2s#3wib1ferjpq2694+91oujijw5xxvc@*$-n@5y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,10 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'furn',
-    'dashboard'
+    'dashboard',
 ]
 
-MIDDLEWARE = [ 
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -113,8 +113,14 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/logout"
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = 'static/'
 
@@ -124,9 +130,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/logout-page/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

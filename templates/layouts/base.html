@@ -45,13 +45,17 @@
 
 
 
+    {% include 'includes/logout-coniform.html' %}
+    <div class="block-content">
         {% include 'includes/navigation.html' %}
             {% block content %}
 
             {% endblock content %}
         {% include 'includes/footer.html' %}
+    </div>
 
 
+    <script src="{% static 'js/main.js' %}"></script>
 
     <script src="{% static 'js/jquery.js' %}"></script>
 

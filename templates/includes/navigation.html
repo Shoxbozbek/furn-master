@@ -1,53 +1,5 @@
 {% load static %}
 
-<style>
-    body {
-  padding: 20px;
-}
-
-.modal {
-  display: none;
-  position:fixed;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
-  background: #fff;
-  width: 320px;
-  height: 320px;
-  text-align: center;
-  box-sizing:border-box;
-  box-shadow:0 0 20px rgba(0,0,0,.2);
-  
-  &.visible {
-    display: block;
-  }
-}
-
-.modal__header {
-  color:white;
-  background: #333;
-  line-height: 50px;
-  text-align: center;
-  position: relative;
-  height:50px;
-  box-sizing:border-box;
-  
-   a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-decoration: none;
-    color:white;
-    font-weight: bold;
-    display: block;
-    padding: 0 20px;
-    font-size:16px;
-    background: #555;
-    height: 100%;  
-  }
-}
-</style>
-
 <!--welcome-hero start -->
 <header id="home" class="welcome-hero">
 
@@ -150,7 +102,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html">sine<span>mkt</span>.</a>
+                        <a class="navbar-brand" href="{% url 'furn:home' %}">sine<span>mkt</span>.</a>
 
                     </div>
                     <!--/.navbar-header-->
@@ -159,20 +111,19 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class=" scroll active"><a href="#home">home</a></li>
+                            <li class="active"><a href="{% url 'furn:home' %}">home</a></li>
                             <li class="scroll"><a href="#new-arrivals">new arrival</a></li>
-                            <li class="scroll"><a href="#feature">features</a></li>
-                            <li class="scroll"><a href="#blog">blog</a></li>
                             <li class="scroll"><a href="#newsletter">contact</a></li>
-                            {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'furn:logout' %}" >Logout</a></li>                           
-                            {% endif %}
                             {% if not request.user.is_authenticated %}
-                            <li><a href="{% url 'furn:signup' %}">signup</a></li>
+                            <li><a href="{% url 'furn:signup' %}">Register</a></li>
                             <li><a href="{% url 'furn:login' %}">Login</a></li>
                             {% endif %}
                             {% if request.user.is_organiser %}
                             <li class=""><a href="/dashboard/">dashboard</a></li>
+                            {% endif %}
+                            {% if request.user.is_authenticated %}
+                            <li class="profile-navbar"><a href="{% url 'furn:profile' %}">Profile</a></li>
+                            <li class="logout-navbar"><a href="#">Logout</a></li>
                             {% endif %}
                         </ul>
                         <!--/.nav -->
@@ -189,23 +140,5 @@
     </div>
 
 </header>
-
-<script>
-    $(".js-open-modal").click(function () {
-            $(".modal").addClass("visible");
-        });
-
-        $(".js-close-modal").click(function () {
-            $(".modal").removeClass("visible");
-        });
-
-        $(document).click(function (event) {
-            //if you click on anything except the modal itself or the "open modal" link, close the modal
-            if (!$(event.target).closest(".modal,.js-open-modal").length) {
-                $("body").find(".modal").removeClass("visible");
-            }
-        });
-
-</script>
 <!--/.welcome-hero-->
 <!--welcome-hero end -->
