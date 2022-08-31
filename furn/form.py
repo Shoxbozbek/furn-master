@@ -22,6 +22,7 @@ class Registration(UserCreationForm):
         fields = ["first_name", "last_name", "email", "password1", "password2",]
 
 
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
