@@ -11,6 +11,5 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout_redirect, name='logout-redirect'),
     path('logout-link', LogoutView.as_view(), name='logout-link'),
-    path('<int:pk>/details/', arrivals_detail, name='arrival_detail'),
-    path('<int:pk>/profile-edit', uptadeProfileForm, name='uptade_profile'),
+    path('<int:pk>/details/', arrivals_detail, name='arrival_detail')
 ]

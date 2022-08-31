@@ -2,17 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth import get_user_model
 from furn.models import Product, Blog, Arrival
+from django.db.models import Q
 
 User = get_user_model()
 
 def dashboard_home(request):
-    users = User.objects.count()
+    user = User.objects.count()
     blogs = Blog.objects.count()
     new_products = Arrival.objects.count()
     products = Product.objects.count() + new_products
     context = {
+        "users": user,
         "blogs":blogs,
-        "users": users,
         "products":products,
         "new_products": new_products,
     }
@@ -49,7 +50,19 @@ def charts(request):
     return render(request, 'dashboard/includes/charts.html')
 
 def tables(request):
-    return render(request, 'dashboard/includes/tables.html')
+    
+    if 'p' in request.GET:
+        search = request.GET['p']
+        full_search = Q(Q(first_name__icontains=search) | Q(email__icontains=search))
+        users = User.objects.filter(full_search)
+    else:
+        users = User.objects.all()
+    
+    context = {
+        "users": users,
+    }
+    return render(request, 'dashboard/includes/tables.html', context)
+
 
 def page_404(request):
     return render(request, 'dashboard/includes/404.html')

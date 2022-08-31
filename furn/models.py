@@ -1,5 +1,8 @@
+from email import message
+from secrets import choice
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
+from PIL import Image
 
 class MyUser(AbstractUser):
     username = None
@@ -17,8 +20,19 @@ class Profile(models.Model):
     phone_number = models.IntegerField(default=998949949494)
     custome_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     image = models.ImageField(default='arrivals5.png', upload_to = "profile")
-    
+    salary = models.IntegerField(default=0)
 
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+            
+                     
 class Carousel(models.Model):
     img = models.ImageField()
     slider_title = models.CharField(max_length=100)
@@ -81,3 +95,21 @@ class Category(models.Model):
         return self.category_name
 
 
+class Contact(models.Model):
+    
+    TAKLIF = "Taklif"
+    SHIKOYAT = "Shikoyat"    
+    
+    CONTACT_CHOICES = [
+        (TAKLIF, "Taklif"),
+        (SHIKOYAT, "Shikoyat")
+    ]
+        
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    choices = models.CharField(max_length=8, choices=CONTACT_CHOICES, default=TAKLIF)
+    mobile = models.IntegerField(default='+998')
+    message = models.TextField(max_length=700)
+    
+    def __str__(self):
+        return self.choices
