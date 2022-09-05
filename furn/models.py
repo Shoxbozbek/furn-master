@@ -1,3 +1,4 @@
+from audioop import add
 from email import message
 from secrets import choice
 from django.db import models
@@ -110,6 +111,7 @@ class Contact(models.Model):
     choices = models.CharField(max_length=8, choices=CONTACT_CHOICES, default=TAKLIF)
     mobile = models.IntegerField(default='+998')
     message = models.TextField(max_length=700)
+    date = models.DateTimeField(auto_now=add)
     
     def __str__(self):
         return self.choices

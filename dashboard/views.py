@@ -1,8 +1,11 @@
+from datetime import date
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth import get_user_model
-from furn.models import Product, Blog, Arrival
+from furn.models import Contact, Product, Blog, Arrival
 from django.db.models import Q
+from django.utils import timezone
+
 
 User = get_user_model()
 
@@ -11,11 +14,21 @@ def dashboard_home(request):
     blogs = Blog.objects.count()
     new_products = Arrival.objects.count()
     products = Product.objects.count() + new_products
+    contact = Contact.objects.count()
+    contact_taklif = Contact.objects.filter(choices="Taklif").count()
+    contact_shikoyat = Contact.objects.filter(choices="Shikoyat").count()
+    
+    # contact_last
+    contact_last = Contact.objects.filter(date__date=timezone.now()).count()
     context = {
         "users": user,
         "blogs":blogs,
         "products":products,
         "new_products": new_products,
+        'contact': contact,
+        'contact_taklif': contact_taklif,
+        'contact_shikoyat': contact_shikoyat,
+        'contact_last': contact_last
     }
     return render(request, 'dashboard/pages/home.html', context)
 
