@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    {% if rate %}
+    <img src="{{ rate.image.url }}" alt="" width="500">
+    <a href="{% url 'furn:home' %}"><button>Next</button></a>
+    <form method="POST" class="rate-form" id="{{ rate.id }}">
+        {% csrf_token %}
+        <button type="submit" class="fa fa-star fa-3x btns" id="first"></button>
+        <button type="submit" class="fa fa-star fa-3x btns" id="second"></button>
+        <button type="submit" class="fa fa-star fa-3x btns" id="third"></button>
+        <button type="submit" class="fa fa-star fa-3x btns" id="fourth"></button>
+        <button type="submit" class="fa fa-star fa-3x btns" id="fifth"></button>
+        <br>
+        <div id="confirm-box"></div>
+    </form>
+
+    {% else %}
+    <h1>Rate qilgani rasm qolmadi</h1>
+    {% endif %}
+
+    <script src="{% static 'main.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
