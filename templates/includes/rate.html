@@ -33,7 +33,8 @@
     </form>
 
     {% else %}
-    <h1>Rate qilgani rasm qolmadi</h1>
+    <h1>There is no image to rate</h1>
+    <h3>{{ avg_rate.score__avg }}</h3>
     {% endif %}
 
     <script src="{% static 'main.js' %}"></script>

@@ -4,6 +4,7 @@ from furn.models import *
 from furn.form import *
 from django.db.models import Q
 from django.http import JsonResponse
+from django.db.models import Avg 
 
 
 def home(request):
@@ -29,7 +30,8 @@ def home(request):
     else:
         form = ContactForm()
         
-    rate = RateStars.objects.filter(score=0).order_by("?").first()   
+    rate = RateStars.objects.filter(score=0).order_by("?").first()
+    avg_rate = RateStars.objects.aggregate(Avg("score"))   
     blog = Blog.objects.all()
     base = Carousel.objects.all()
     categories = Category.objects.all()
@@ -40,7 +42,8 @@ def home(request):
          "products":products,
          "categories":categories,
          "form":form,
-         "rate": rate
+         "rate": rate,
+         "avg_rate": avg_rate
         })
     
 def arrivals_detail(request, pk):
