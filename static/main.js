@@ -1,5 +1,3 @@
-console.log("Hello world")
-
 // all stars here
 const one = document.getElementById("first")
 const two = document.getElementById("second")
@@ -8,6 +6,7 @@ const four = document.getElementById("fourth")
 const five = document.getElementById("fifth")
 
 const form = document.querySelector(".rate-form")
+console.log(form);
 const confirmBox = document.getElementById("confirm-box")
 
 const csrf = document.getElementsByName("csrfmiddlewaretoken")

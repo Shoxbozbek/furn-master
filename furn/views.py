@@ -28,8 +28,8 @@ def home(request):
         return redirect("/")
     else:
         form = ContactForm()
-    
-    
+        
+    rate = RateStars.objects.filter(score=0).order_by("?").first()   
     blog = Blog.objects.all()
     base = Carousel.objects.all()
     categories = Category.objects.all()
@@ -39,7 +39,8 @@ def home(request):
          "arrivals":arrivals,
          "products":products,
          "categories":categories,
-         "form":form
+         "form":form,
+         "rate": rate
         })
     
 def arrivals_detail(request, pk):
@@ -83,15 +84,6 @@ def profile(request):
     }
     
     return render(request, 'pages/profile.html', context)
-
-
-
-def rate(request):
-    rate = RateStars.objects.filter(score=3).order_by("?").first()
-    context = {
-        "rate": rate
-    }
-    return render(request, 'includes/rate.html', context)
 
 def rate_img(request):
     if request.method == "POST":
