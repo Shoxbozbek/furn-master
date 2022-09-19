@@ -34,9 +34,13 @@
 
     {% else %}
     <h1>There is no image to rate</h1>
-    <h3>{{ avg_rate.score__avg }}</h3>
+    <button type="submit" class="fa fa-star fa-3x btns" id="bir"></button>
+    <button type="submit" class="fa fa-star fa-3x btns" id="ikki"></button>
+    <button type="submit" class="fa fa-star fa-3x btns" id="uch"></button>
+    <button type="submit" class="fa fa-star fa-3x btns" id="tort"></button>
+    <button type="submit" class="fa fa-star fa-3x btns" id="besh"></button>
+    <h3 id="avg">{{ avg_rate.score__avg }}</h3>
     {% endif %}
-
     <script src="{% static 'main.js' %}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>

@@ -5,6 +5,14 @@ const three = document.getElementById("third")
 const four = document.getElementById("fourth")
 const five = document.getElementById("fifth")
 
+const bir = document.getElementById("bir")
+const ikki = document.getElementById("ikki")
+const uch = document.getElementById("uch")
+const tort = document.getElementById("tort")
+const besh = document.getElementById("besh")
+const avg = document.getElementById("avg")
+
+
 const form = document.querySelector(".rate-form")
 console.log(form);
 const confirmBox = document.getElementById("confirm-box")
@@ -21,7 +29,6 @@ const handleChoose = (index) => {
         }
     }
 }
-
 
 
 const checkTrue = (selection) => {
