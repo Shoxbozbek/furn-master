@@ -5,13 +5,6 @@ const three = document.getElementById("third")
 const four = document.getElementById("fourth")
 const five = document.getElementById("fifth")
 
-const bir = document.getElementById("bir")
-const ikki = document.getElementById("ikki")
-const uch = document.getElementById("uch")
-const tort = document.getElementById("tort")
-const besh = document.getElementById("besh")
-const avg = document.getElementById("avg")
-
 
 const form = document.querySelector(".rate-form")
 console.log(form);
@@ -133,3 +126,191 @@ if (one) {
         })
     }))
 }
+
+
+
+
+const bir = document.getElementById("bir")
+const ikki = document.getElementById("ikki")
+const uch = document.getElementById("uch")
+const tort = document.getElementById("tort")
+const besh = document.getElementById("besh")
+const avg = document.getElementById("avg")
+
+
+if (avg.innerHTML == 1.0) {
+    bir.classList.add("checked")
+}
+if (avg.innerHTML == 1.5) {
+    bir.classList.add("checked")
+    ikki.classList.add("fa-solid")
+    ikki.classList.add("fa-star-half-stroke")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML == 1.25) {
+    bir.classList.add("checked")
+    ikki.classList.add("fa-solid")
+    ikki.classList.add("fa-star-half-stroke")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML == 1.75) {
+    bir.classList.add("checked")
+    ikki.classList.add("fa-solid")
+    ikki.classList.add("fa-star-half-stroke")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML == 2.0) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML == 2.5) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("fa-solid")
+    uch.classList.add("fa-star-half-stroke")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML == 2.25) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("fa-solid")
+    uch.classList.add("fa-star-half-stroke")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML == 2.75) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("fa-solid")
+    uch.classList.add("fa-star-half-stroke")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML == 3.0) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML == 3.5) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("fa-solid")
+    tort.classList.add("fa-star-half-stroke")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML == 3.25) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("fa-solid")
+    tort.classList.add("fa-star-half-stroke")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML == 3.75) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("fa-solid")
+    tort.classList.add("fa-star-half-stroke")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML == 4.0) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML == 4.5) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("fa-solid")
+    besh.classList.add("fa-star-half-stroke")
+    besh.classList.add("checked")
+}
+if (avg.innerHTML == 4.25) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("fa-solid")
+    besh.classList.add("fa-star-half-stroke")
+    besh.classList.add("checked")
+}
+if (avg.innerHTML == 4.75) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("fa-solid")
+    besh.classList.add("fa-star-half-stroke")
+    besh.classList.add("checked")
+}
+if (avg.innerHTML == 5.0) {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("checked")
+}
+if (avg.innerHTML > '1.0' & avg.innerHTML < '1.5') {
+    bir.classList.add("checked")
+    ikki.classList.add("fa-solid")
+    ikki.classList.add("fa-star-half-stroke")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML > '1.5' & avg.innerHTML < '2.0') {
+    bir.classList.add("checked")
+    ikki.classList.add("fa-solid")
+    ikki.classList.add("fa-star-half-stroke")
+    ikki.classList.add("checked")
+}
+if (avg.innerHTML > '2.0' & avg.innerHTML < '2.5') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("fa-solid")
+    uch.classList.add("fa-star-half-stroke")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML > '2.5' & avg.innerHTML < '3.0') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("fa-solid")
+    uch.classList.add("fa-star-half-stroke")
+    uch.classList.add("checked")
+}
+if (avg.innerHTML > '3.0' & avg.innerHTML < '3.5') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("fa-solid")
+    tort.classList.add("fa-star-half-stroke")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML > '3.5' & avg.innerHTML < '4.0') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("fa-solid")
+    tort.classList.add("fa-star-half-stroke")
+    tort.classList.add("checked")
+}
+if (avg.innerHTML > '4.0' & avg.innerHTML < '4.5') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("fa-solid")
+    besh.classList.add("fa-star-half-stroke")
+    besh.classList.add("checked")
+}
+if (avg.innerHTML > '4.5' & avg.innerHTML < '5.0') {
+    bir.classList.add("checked")
+    ikki.classList.add("checked")
+    uch.classList.add("checked")
+    tort.classList.add("checked")
+    besh.classList.add("fa-solid")
+    besh.classList.add("fa-star-half-stroke")
+    besh.classList.add("checked")
+}
+
