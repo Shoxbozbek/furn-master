@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <!--welcome-hero start -->
 <header id="home" class="welcome-hero">
 
@@ -114,9 +114,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="active"><a href="{% url 'furn:home' %}">home</a></li>
-                            <li class="scroll"><a href="#new-arrivals">new arrival</a></li>
-                            <li class="scroll"><a href="#newsletter">contact</a></li>
+                            <li class="active"><a href="{% url 'furn:home' %}">{% trans "uy" %}</a></li>
+                            <li class="scroll"><a href="#new-arrivals">{% trans 'yangi kelgan' %}</a></li>
+                            <li class="scroll"><a href="#newsletter">{% trans 'aloqa' %}</a></li>
                             {% if not request.user.is_authenticated %}
                             <li><a href="{% url 'furn:signup' %}">Register</a></li>
                             <li><a href="{% url 'furn:login' %}">Login</a></li>
@@ -128,11 +128,14 @@
                             <li class="profile-navbar"><a href="{% url 'furn:profile' %}">Profile</a></li>
                             <li class="logout-navbar"><a href="#">Logout</a></li>
                             {% endif %}
+                            
                         </ul>
                         <!--/.nav -->
+                       
                     </div><!-- /.navbar-collapse -->
                 </div>
                 <!--/.container-->
+           
             </nav>
             <!--/nav-->
             <!-- End Navigation -->
@@ -141,6 +144,8 @@
         <div class="clearfix"></div>
 
     </div>
+
+     
 
 </header>
 <!--/.welcome-hero-->
